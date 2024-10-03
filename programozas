@@ -1,4 +1,3 @@
-#1.feladat
 while True:
     try:
         hany_diak = int(input("Hány diákot szeretne hozzáadni: "))
@@ -7,7 +6,6 @@ while True:
     except:
         print("Nem jó")
     
-        
 diakok = []
 
 for valami in range(hany_diak):
@@ -15,8 +13,6 @@ for valami in range(hany_diak):
     jegy = int(input("Add meg a diák jegyét: "))
     diakok.append((nev, jegy))
 
-    
-#2. feladat
 while True:
     try:
         tablazat = input("Szeretnéd látni az összes diákot (igen/nem) ")
@@ -30,7 +26,6 @@ if tablazat == "igen":
         print(f"Nev      | Jegy")
         print(f"{diak[0]}          {diak[1]}")
 
-#3. feladat
 atlaginput = input("Szeretnéd tudni az átlagos jegyet? (igen/nem) ")
 
 ossz = 0
@@ -41,14 +36,11 @@ atlag = ossz / len(diakok)
 
 if atlaginput == "igen":
     print(atlag)
-
-#4. feladat
     
 maxmin = input("Szeretnéd tudni a legmagasabb és legalacsonyabb jegyet? (igen/nem) ")
 
 legnagyobb = diakok[0][1]
 legkisebb = diakok[0][1]
-
 
 for diak in diakok:
     if diak[1] < legkisebb:
@@ -59,8 +51,6 @@ for diak in diakok:
 if maxmin == "igen":
     print(f"Legmagabsabb jegy: {legnagyobb}")
     print(f"Legalacsonyabb jegy: {legkisebb}")
-    
-#5. feladat
 
 eltavolit = input("Szeretnél eltávólítani egy diákot? (igen/nem) ")
 diak_neve = input("Add meg a diák nevét, akit el szeretnél távolítani: ")
