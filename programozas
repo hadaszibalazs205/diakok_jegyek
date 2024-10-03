@@ -1,0 +1,75 @@
+#1.feladat
+while True:
+    try:
+        hany_diak = int(input("Hány diákot szeretne hozzáadni: "))
+        if type(hany_diak) == int:
+            break
+    except:
+        print("Nem jó")
+    
+        
+diakok = []
+
+for valami in range(hany_diak):
+    nev = input("Add meg a diák nevét: ")
+    jegy = int(input("Add meg a diák jegyét: "))
+    diakok.append((nev, jegy))
+
+    
+#2. feladat
+while True:
+    try:
+        tablazat = input("Szeretnéd látni az összes diákot (igen/nem) ")
+        if tablazat == "igen" or tablazat == "nem":
+            break
+    except:
+        print("Nem jó")
+
+if tablazat == "igen":
+    for diak in diakok:
+        print(f"Nev      | Jegy")
+        print(f"{diak[0]}          {diak[1]}")
+
+#3. feladat
+atlaginput = input("Szeretnéd tudni az átlagos jegyet? (igen/nem) ")
+
+ossz = 0
+for diak in diakok:
+    ossz = ossz + diak[1]
+
+atlag = ossz / len(diakok)
+
+if atlaginput == "igen":
+    print(atlag)
+
+#4. feladat
+    
+maxmin = input("Szeretnéd tudni a legmagasabb és legalacsonyabb jegyet? (igen/nem) ")
+
+legnagyobb = diakok[0][1]
+legkisebb = diakok[0][1]
+
+
+for diak in diakok:
+    if diak[1] < legkisebb:
+        legkisebb = diak[1]
+    if diak[1] > legnagyobb:
+        legnagyobb = diak[1]
+
+if maxmin == "igen":
+    print(f"Legmagabsabb jegy: {legnagyobb}")
+    print(f"Legalacsonyabb jegy: {legkisebb}")
+    
+#5. feladat
+
+eltavolit = input("Szeretnél eltávólítani egy diákot? (igen/nem) ")
+diak_neve = input("Add meg a diák nevét, akit el szeretnél távolítani: ")
+
+indexelo = 0
+
+if eltavolit == "igen":
+    for diak in diakok:
+        if diak[0] == diak_neve:
+            diakok.pop(indexelo)
+        indexelo += 1
+    print(f"{diak[0]} eltávolítva")
